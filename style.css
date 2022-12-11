@@ -19,21 +19,15 @@ html {
 }
 body {
     position: fixed;
-    left: 0px;
     background-color: black;
     --thumbnails-image-width: 25vw;
     --thumbnails-image-height: 25vw;
     --thumbnails-titleheight: calc(var(--thumbnails-image-height) * 0.20);
-    --details-image-width: 400px;
+    --details-image-width:100vw;
     --details-image-height: 70vw;
-    margin: 0px;
+    
 }
-.logo {
 
-    background-color: black;
-    height: 20px;  
-
-}
 .headtext {
 
     margin: 0px;
@@ -56,18 +50,15 @@ body {
 
 }
 .details-container {
-
-    image-rendering: crisp-edges;
-    display: flex;
     flex-direction: column;
     text-align: center;
-
+    
 }
 .details-image {
 
     width: var(--details-image-width);
     height: var(--details-image-height);  
-
+  
 }
 
 .details-title {
@@ -89,7 +80,7 @@ body {
     scroll-behavior: smooth;
     list-style: none;
     justify-content: space-around;
-    padding-left: 18px;
+    padding-left: 10px;
     padding-right: 5px;
 
 }
@@ -106,7 +97,7 @@ body {
     min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
     min-width: var(--thumbnails-image-width);
     max-width: var(--thumbnails-image-width);
-    margin-left: 0vw;
+    
 
 }
 
@@ -136,7 +127,7 @@ body {
     .headtext {
         margin: 0px;
         font-size: 25px;
-        text-align: left;    
+        text-align: center;    
         text-transform: lowercase; color: rgb(107, 106, 106);
         font-family: arc;
         animation-name: black-gray;
@@ -150,15 +141,27 @@ body {
         --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.3);
         --details-image-width: 45vw;
         --details-image-height: 35vw;
-        margin: 0px;
+        
         position: absolute;
-        left: 30px;
-        justify-content: space-evenly;    
+
     }
 
     .details-image {
-        width: calc(var(--details-image-width)*1.6) ;
-        height: var(--details-image-height);    
+        width: calc(var(--details-image-width)*1.3) ;
+        height: var(--details-image-height);   
+        margin-top: 45px; 
+        
+    }
+    .details-title {
+
+        display: block;
+        background-color: rgb(0, 0, 0);
+        font-size: x-large;
+        text-transform: lowercase; color: rgb(107, 106, 106);
+        font-family: arc;
+        text-align: center;
+        margin-top: 5px;
+    
     }
 
     .logo {
@@ -178,7 +181,7 @@ body {
     }
 
     .details-container {
-        justify-content: space-around;
+        justify-content: center;
         margin: 0px;    
     }
     .thumbnails-list {
@@ -205,7 +208,7 @@ body {
     .headtext {
         margin: 0px;
         font-size: 25px;
-        text-align: left;    
+        text-align: center;   
         text-transform: lowercase; color: rgb(107, 106, 106);
         font-family: arc;
         animation-name: black-gray;
@@ -222,7 +225,7 @@ body {
         --details-image-height: 35vw;
         margin: 0px;
         
-        left: 30px;
+        left: 40px;
         justify-content: space-evenly;
         
     }
@@ -231,13 +234,14 @@ body {
      
     }
     .details-container {
-        justify-content: space-around;
-        margin: 0px;
+        flex-direction: column;
+        text-align: center;
     }
     .details-image {
         width: calc(var(--details-image-width)*1.2) ;
         height: var(--details-image-height);    
-        margin-left: 100px;
+        margin-left:    50px;
+        margin-top: 125px;
     }    
     .thumbnails-item:hover {
         transform: scale(1.1);
@@ -256,6 +260,7 @@ body {
     }
 
     .thumbnails-title {
+        
         font-size: 1.5em;
         font-stretch: ultra-expanded;
     }

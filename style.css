@@ -11,107 +11,124 @@
     }
    }
 
-
 html {
     height: 100%;
-    width: 100%;
-    
 }
 body {
-    position: fixed;
-    background-color: black;
     --thumbnails-image-width: 25vw;
     --thumbnails-image-height: 25vw;
     --thumbnails-titleheight: calc(var(--thumbnails-image-height) * 0.20);
-    --details-image-width:100vw;
-    --details-image-height: 70vw;
-    
+    --details-image-width:60vw;
+    --details-image-height: 50vw;
+    background-color: black ;
 }
-
-.headtext {
-
-    margin: 0px;
-    font-size: 25px;
-    text-align: left;    
-    text-transform: lowercase; color: rgb(107, 106, 106);
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.logo{
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: white;
     font-family: arc;
-    animation-name: black-gray;
-    animation-duration: 2s;
-    animation-iteration-count:infinite;
-    animation-direction: alternate;
-
 }
-
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .main-class {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    flex-grow: 1;
+}
+.main-class.hidden {
+    /*--thumbnails-image-width: 30vw;
+    --thumbnails-image-height: 30vw;
+    --thumbnails-titleheight: calc(var(--thumbnails-image-height) * 0.20);*/
+    justify-content: space-around;
 }
 .details-container {
+    display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
+    margin-bottom: 3vh;
+    
     
 }
-.details-image {
-
-    width: var(--details-image-width);
-    height: var(--details-image-height);  
-  
+.hidden .details-container {
+    display: none;
 }
-
+.details-frame{
+    position: relative;
+}
+.details-image {
+    width: calc(var(--details-image-width)*1.2);
+    height: var(--details-image-height); 
+    border-radius: 25% ;   
+}
 .details-title {
-
     display: block;
-    background-color: rgb(0, 0, 0);
-    font-size: x-large;
+    font-size: 2em;
     text-transform: lowercase; color: rgb(107, 106, 106);
     font-family: arc;
-
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    
+}
+#hide-button {
+    position: absolute;
+    right: 0vw ;
+    top: 0vh;
 }
 .thumbnails-list {
-
     display: flex;
     flex-wrap: wrap;
-    max-height: 50vh;
-    max-width: 90vw;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
+    max-height: 25vh;
+    overflow-y: auto;
     list-style: none;
     justify-content: space-around;
-    padding-left: 10px;
-    padding-right: 5px;
-
+    padding-left: 0px;
+    padding-right: 2vh;
 }
-.thumbnails-item {
+.hidden .thumbnails-list{
+    max-height: 60vh;
+    margin-bottom: 10vh;
+}
 
+
+.thumbnails-item {
     border: solid 2px rgb(143, 141, 141);
     margin-top: 2vh;
     border-radius: 25%;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
     overflow: hidden;
     min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
     min-width: var(--thumbnails-image-width);
     max-width: var(--thumbnails-image-width);
-    
-
+    max-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+    margin-left: 1vw;
 }
 
 .thumbnails-item:hover {
     transform: scale(1.1);
+    margin-left: 1vw;
+}
+.thumbnails-anchor{
+    text-decoration: none;
 }
 
 .thumbnails-image {
+   padding-top: 1vh;
    width: var(--thumbnails-image-width);  
    height: var(--thumbnails-image-height);
    display: block;  
 }
-
-
 .thumbnails-title {
     display: block;
     text-align: center;
@@ -119,150 +136,109 @@ body {
     text-transform: lowercase; color: rgb(255, 255, 255);
     font-family: arc ;
     overflow: hidden;
-    height: calc(var(--thumbnails-image-height)*0.3);
+    height: var(--thumbnails-image-height);
+    height: 4vh;
+}
+.is-point{
+    transform: scale(0.001);
+    transition 0s;
 }
 
 @media (min-width: 600px) and (max-width: 999px) {
 
-    .headtext {
-        margin: 0px;
-        font-size: 25px;
-        text-align: center;    
-        text-transform: lowercase; color: rgb(107, 106, 106);
-        font-family: arc;
-        animation-name: black-gray;
-        animation-duration: 2s;
-        animation-iteration-count:infinite;
-    }
-
     body {
-        --thumbnails-image-width: 10vw;
-        --thumbnails-image-height: 10vw;
+        --thumbnails-image-width: 15vw;
+        --thumbnails-image-height: 13vw;
         --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.3);
-        --details-image-width: 45vw;
+        --details-image-width: 35vw;
         --details-image-height: 35vw;
         
-        position: absolute;
 
     }
-
-    .details-image {
-        width: calc(var(--details-image-width)*1.3) ;
-        height: var(--details-image-height);   
-        margin-top: 45px; 
-        
-    }
-    .details-title {
-
-        display: block;
-        background-color: rgb(0, 0, 0);
-        font-size: x-large;
-        text-transform: lowercase; color: rgb(107, 106, 106);
-        font-family: arc;
-        text-align: center;
-        margin-top: 5px;
-    
-    }
-
     .logo {
-        display: block;
-        background-color: black;
-        height: 20px; 
-        width: 320px;
+        font-size: 1em;
     }
-
-    .main-class {
+    .main-class{
         flex-direction: row;
-     
-    }
-
-    .thumbnails-item:hover {
-        transform: scale(1.2);
-    }
-
-    .details-container {
         justify-content: center;
-        margin: 0px;    
     }
+
+    .details-container{
+        justify-content: center;
+        align-items: center;
+        margin-right: 25vw;
+    }
+
+    
     .thumbnails-list {
-        padding-right: 18px;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-right: 2vw;
         flex-direction: column;
         flex-wrap: nowrap;
         max-height: 85vh;
         order: -1;
         justify-content: flex-start;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-right: 10vw;
     }
+    .hidden .thumbnails-list{
+       
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-height: 75vh;
+        margin-right: 0vw;
+        margin-left: 0vw;
+    }
+
 
 }
 @media (min-width: 1000px) {
-   .logo {
-    
-    background-color: black;
-    height: 20px;  
-    width: 650px;
-    
-}
-    
-    .headtext {
-        margin: 0px;
-        font-size: 25px;
-        text-align: center;   
-        text-transform: lowercase; color: rgb(107, 106, 106);
-        font-family: arc;
-        animation-name: black-gray;
-        animation-duration: 2s;
-        animation-iteration-count:infinite;
-        
-    
-    }
+
     body {
-        --thumbnails-image-width: 10vw;
-        --thumbnails-image-height: 10vw;
-        --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.20);
-        --details-image-width: 45vw;
+        --thumbnails-image-width: 15vw;
+        --thumbnails-image-height: 15vw;
+        --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.3);
+        --details-image-width: 35vw;
         --details-image-height: 35vw;
-        margin: 0px;
         
-        left: 40px;
-        justify-content: space-evenly;
-        
+
     }
-    .main-class {
+    .main-class{
         flex-direction: row;
-     
+        justify-content: space-around;
+        display: flex;
+        flex-grow: 1;
     }
-    .details-container {
-        flex-direction: column;
-        text-align: center;
+    .details-image{
+        margin-top: 10vh;
     }
-    .details-image {
-        width: calc(var(--details-image-width)*1.2) ;
-        height: var(--details-image-height);    
-        margin-left:    50px;
-        margin-top: 125px;
-    }    
-    .thumbnails-item:hover {
-        transform: scale(1.1);
+
+    .details-container{
+        
+        margin-top: 5vh;
+        margin-right: 25vw;
     }
-    
+
     .thumbnails-list {
-        padding-right: 18px;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        max-height: 85vh;
+        max-width: 35vw;
+        margin-top: 0;
         order: -1;
-        justify-content: flex-start;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        width: 160px; 
+        max-height: 87vh;
+        padding-right: 0vw;
+        margin-right: 0vw;
+        
+    }
+    .hidden .thumbnails-list{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-height: 75vh;
+        max-width: 300vw;
     }
 
     .thumbnails-title {
-        
         font-size: 1.5em;
-        font-stretch: ultra-expanded;
     }
    
 
